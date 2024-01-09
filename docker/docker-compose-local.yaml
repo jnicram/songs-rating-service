@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: 'postgres:15-alpine'
+    environment:
+      - 'POSTGRES_DB=songs-rating-local'
+      - 'POSTGRES_PASSWORD=songs-rating-local'
+      - 'POSTGRES_USER=songs-rating-local'
+    ports:
+      - '54327:5432'
+    healthcheck:
+      test: psql -U songs-rating-local -d songs-rating-local -W songs-rating-local -c "SELECT 1;"
+      interval: 5s
+      timeout: 10s
+      retries: 3

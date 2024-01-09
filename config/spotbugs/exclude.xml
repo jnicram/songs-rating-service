@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<!-- This file specifies a spotbugs filter for excluding reports that
+     should not be considered errors.
+     The format of this file is documented at:
+       https://spotbugs.readthedocs.io/en/latest/filter.html
+     When possible, please specify the full names of the bug codes,
+     using the pattern attribute, to make it clearer what reports are
+     being suppressed.  You can find a listing of codes at:
+       https://spotbugs.readthedocs.io/en/latest/bugDescriptions.html
+-->
+
+<FindBugsFilter>
+  <Match>
+    <Source name="~.*\.groovy"/>
+    <Bug pattern="SE_NO_SERIALVERSIONID,LI_LAZY_INIT_STATIC,EI_EXPOSE_REP2,EI_EXPOSE_REP"/>
+  </Match>
+  <Match>
+    <Source name="~.*\.java"/>
+    <Bug pattern="CRLF_INJECTION_LOGS,EI_EXPOSE_REP,EI_EXPOSE_REP2"/>
+  </Match>
+</FindBugsFilter>
