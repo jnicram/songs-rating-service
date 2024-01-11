@@ -1,4 +1,4 @@
-package pl.recruitment.songsratingservice.infrastructure.service;
+package pl.recruitment.songsratingservice.infrastructure;
 
 import javax.sql.DataSource;
 import net.javacrumbs.shedlock.core.LockProvider;

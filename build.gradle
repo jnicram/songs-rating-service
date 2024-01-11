@@ -33,6 +33,7 @@ dependencies {
   implementation 'org.flywaydb:flyway-core'
   implementation "net.javacrumbs.shedlock:shedlock-spring:${shedlockVersion}"
   implementation "net.javacrumbs.shedlock:shedlock-provider-jdbc-template:${shedlockVersion}"
+  implementation "com.opencsv:opencsv:${opencsvVersion}"
 
   compileOnly 'org.projectlombok:lombok'
 

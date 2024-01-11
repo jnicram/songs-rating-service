@@ -1,6 +1,6 @@
 package pl.recruitment.songsratingservice.rest;
 
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
@@ -21,12 +21,12 @@ class SongRatingEndpoint {
   private final SongRatingService songRatingService;
 
   @GetMapping("/{songId}/avg")
-  public ResponseEntity<Double> getAverageRating(@PathVariable UUID songId,
-      @RequestParam @DateTimeFormat(pattern = "yyyyMMdd") Instant since,
-      @RequestParam @DateTimeFormat(pattern = "yyyyMMdd") Instant until) {
+  public ResponseEntity<AverageDto> getAverageRating(@PathVariable UUID songId,
+      @RequestParam @DateTimeFormat(pattern = "yyyyMMdd") LocalDate since,
+      @RequestParam @DateTimeFormat(pattern = "yyyyMMdd") LocalDate until) {
 
     double avg = songRatingService.getAverageRating(songId, since, until);
-    return ResponseEntity.ok(avg);
+    return ResponseEntity.ok(new AverageDto(avg));
   }
 
   @GetMapping("/{songId}/avg-three-months")

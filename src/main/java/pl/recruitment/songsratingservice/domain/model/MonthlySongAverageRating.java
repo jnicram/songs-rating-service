@@ -1,7 +1,10 @@
 package pl.recruitment.songsratingservice.domain.model;
 
-import java.time.Instant;
+import java.time.LocalDate;
+import java.util.UUID;
+import lombok.Builder;
 
-public record MonthlySongAverageRating(Instant period, Double avg) {
+@Builder
+public record MonthlySongAverageRating(String songName, UUID songId, LocalDate period, Double avg) {
 
 }
