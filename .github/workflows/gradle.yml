@@ -76,6 +76,6 @@ jobs:
       uses: andymckay/append-gist-action@1fbfbbce708a39bd45846f0955ed5521f2099c6d
       with:
         token: ${{ secrets.GIST_TOKEN }}
-        gistURL: https://gist.githubusercontent.com/{user}/{id}
+        gistURL: https://gist.githubusercontent.com/jnicram/1d0a72f00d4234e7fa14a1eecf36f5cd
         file: badge.svg
   
