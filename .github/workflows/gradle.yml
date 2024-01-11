@@ -33,11 +33,11 @@ jobs:
       with:
         arguments: build
     - name: PMD report
-        uses: jwgmeligmeyling/pmd-github-action@v1.2
-        with:
-          path: 'build/reports/pmd/*.xml'
+      uses: jwgmeligmeyling/pmd-github-action@v1.2
+      with:
+        path: 'build/reports/pmd/*.xml'
     - name: Publish Test Report
-        uses: EnricoMi/publish-unit-test-result-action@v2
-        if: always()
-        with:
-          files: 'build/test-results/**/*.xml'
+      uses: EnricoMi/publish-unit-test-result-action@v2
+      if: always()
+      with:
+        files: 'build/test-results/**/*.xml'
