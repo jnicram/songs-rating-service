@@ -1,4 +1,5 @@
 # TuneHeaven Song Ratings Backend
+[![CI](https://github.com/jnicram/songs-rating-service/actions/workflows/gradle.yml/badge.svg)](https://github.com/jnicram/songs-rating-service/actions/workflows/gradle.yml)
 
 ## Overview
 
