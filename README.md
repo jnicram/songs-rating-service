@@ -1,6 +1,9 @@
 # TuneHeaven Song Ratings Backend
 [![CI](https://github.com/jnicram/songs-rating-service/actions/workflows/gradle.yml/badge.svg)](https://github.com/jnicram/songs-rating-service/actions/workflows/gradle.yml)
 
+[![Test Results](https://gist.githubusercontent.com/jnicram/1d0a72f00d4234e7fa14a1eecf36f5cd/raw/badge.svg)](https://gist.githubusercontent.com/jnicram/1d0a72f00d4234e7fa14a1eecf36f5cd/raw/badge.svg)
+
+
 ## Overview
 
 Imagine that you need to create a backend service for an analytical application operating on data from a fictional music streaming service called TuneHeaven. In this service, millions of users have access to millions of songs. Every day, up to 23:00, a CSV file with ratings for music tracks from the streaming service is generated. The file follows a structure similar to the example file name: `tune-heaven-songs-2025-03-24.csv`. Each record in the file represents a vote given by a reviewing user and includes information such as:
