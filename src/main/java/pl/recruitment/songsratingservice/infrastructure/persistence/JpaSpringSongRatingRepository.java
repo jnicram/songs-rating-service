@@ -19,6 +19,4 @@ interface JpaSpringSongRatingRepository extends Repository<SongRatingEntity, UUI
 
   @Query("SELECT sre FROM SongRatingEntity sre WHERE sre.importDay BETWEEN :since AND :until")
   Stream<SongRatingEntity> findAllByMonth(@Param("since") LocalDate since, @Param("until") LocalDate until);
-
-  List<SongRatingEntity> findAll();
 }

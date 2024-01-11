@@ -74,9 +74,75 @@ Response:
   }
 ]
 ```
-
 ### Assumptions
 
 - There are no commas in song titles and artist names.
 - The file is guaranteed to appear daily; there won't be a situation where the file is missing at 23:00.
 - API endpoints do not need authentication/authorization layers.
+
+## Setup
+
+### Technology Stack:
+
+- **Programming Language:** Java 17
+- **Framework:** Spring Boot 3.2.1
+- **Dependency Management:** io.spring.dependency-management 1.1.4
+- **Code Quality Plugins:**
+    - SpotBugs 6.0.6
+    - PMD (custom configuration file: `config/pmd/ruleset.xml`)
+    - Checkstyle 10.9.3
+- **Database:**
+    - PostgreSQL (runtimeOnly)
+    - Spring Data JPA
+    - Flyway for database migrations
+- **Lock Management:**
+    - ShedLock 5.10.2
+- **CSV File Processing:**
+    - OpenCSV 5.9
+- **Testing:**
+    - Spring Boot Starter Test
+    - Spock Framework 2.3-groovy-4.0
+    - AssertJ Core 3.24.2
+    - Testcontainers 1.19.1 (PostgreSQL)
+- **Other Tools and Libraries:**
+    - Lombok (annotation processor, compileOnly)
+    - Groovy 4.0.17
+- **Error Reporting:**
+    - SpotBugs (HTML report)
+    - Checkstyle (HTML report)
+
+### Simple configuration
+
+#### Server Configuration
+- `server.port`: 8080
+- `spring.application.name`: songs-rating-service
+
+#### Database Configuration
+- `spring.jpa.hibernate.ddl-auto`: validate
+- `spring.flyway.locations`: classpath:/db/migration
+- `spring.jpa.open-in-view`: true
+
+#### Cron Job Configuration for Daily Import
+- `cron.daily-import.file-location`: (Placeholder for the file location for daily imports)
+- `cron.daily-import.file-pattern`: tune-heaven-songs-yyyy-MM-dd.csv
+- `cron.daily-import.expression`: 0 0 23 * * ? (Cron expression for scheduling daily imports at 23:00)
+
+#### Thanks to Shedlock, it will start after the daily import even if it takes more than 5 minutes
+- `cron.monthly-generation.expression`: 0 5 23 L * ? (Cron expression for monthly file generation)
+
+#### Monthly File Generation
+- `cron.monthly-file.expression`: 0 10 23 L * ? (Cron expression for scheduling monthly file generation at 23:10)
+- `cron.monthly-file.file-location`: (Placeholder for the file location for monthly file generation)
+- `cron.monthly-file.trending-100-songs-file-pattern`: trending100songs-yyyyMM.csv
+- `cron.monthly-file.songs-loosing-file-pattern`: songs-loosing-yyyyMM.csv
+
+### How to run locally?
+
+1. Start DB from `docker/docker-compose-local.yaml` e.g. 
+   ```shell
+    docker-compose -f docker/docker-compose-local.yaml up -d
+    ```
+2. Run SpringBoot application e.g.
+    ```shell
+    ./gradlew bootRun -Dspring.profiles.active=local
+    ```

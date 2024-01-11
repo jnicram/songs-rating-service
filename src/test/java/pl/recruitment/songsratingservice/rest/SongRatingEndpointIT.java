@@ -21,7 +21,7 @@ import pl.recruitment.songsratingservice.domain.service.LocalDateService;
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("it")
-public class SongRatingEndpointIT {
+class SongRatingEndpointIT {
 
   @Autowired
   private MockMvc mockMvc;
@@ -82,7 +82,7 @@ public class SongRatingEndpointIT {
   }
 
   @Test
-  void getAverageLastThreeMonths() throws Exception {
+  void shouldReturnSongAverageFromLastThreeMonths() throws Exception {
     // given
     UUID songId = UUID.fromString("889d147f-a0c3-465a-a479-13a5a7fed46b");
     double avg202312 = 3.00;

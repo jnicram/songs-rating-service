@@ -23,8 +23,6 @@ class JpaSongRatingRepository implements SongRatingRepository {
 
   @Override
   public List<Integer> findRatings(UUID songId, LocalDate since, LocalDate until) {
-    List<SongRatingEntity> all = springSongRatingRepository.findAll();
-
     return springSongRatingRepository.findRatings(songId, since, until);
   }
 

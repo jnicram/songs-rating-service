@@ -18,7 +18,7 @@ import pl.recruitment.songsratingservice.domain.service.SongRatingManagementServ
 @ExtendWith(MockitoExtension.class)
 @SpringBootTest
 @ActiveProfiles("it")
-public class SongRatingSchedulerServiceIT {
+class SongRatingSchedulerServiceIT {
 
   @MockBean
   private SongRatingManagementService songRatingManagementService;
@@ -35,7 +35,7 @@ public class SongRatingSchedulerServiceIT {
   }
 
   @Test
-  public void testImportTuneHeavenRatings() {
+  void testImportTuneHeavenRatings() {
     // when
     songRatingSchedulerService.importTuneHeavenRatings();
 
@@ -44,7 +44,7 @@ public class SongRatingSchedulerServiceIT {
   }
 
   @Test
-  public void testGenerateSongsTrends() {
+  void testGenerateSongsTrends() {
     // when
     songRatingSchedulerService.generateSongsTrends();
 
@@ -53,7 +53,7 @@ public class SongRatingSchedulerServiceIT {
   }
 
   @Test
-  public void testGenerateSongsTrendsFiles() {
+  void testGenerateSongsTrendsFiles() {
     // when
     songRatingSchedulerService.generateSongsTrendsFiles();
 

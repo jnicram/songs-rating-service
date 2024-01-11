@@ -45,6 +45,7 @@
     <exclude name="CyclomaticComplexity"/>
     <exclude name="AvoidRethrowingException"/>
     <exclude name="LoosePackageCoupling"/>
+    <exclude name="SignatureDeclareThrowsException"/>
   </rule>
   <rule ref="category/java/codestyle.xml">
     <exclude name="MethodArgumentCouldBeFinal"/>
