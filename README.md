@@ -144,5 +144,5 @@ Response:
     ```
 2. Run SpringBoot application e.g.
     ```shell
-    ./gradlew bootRun -Dspring.profiles.active=local
+    SPRING_PROFILES_ACTIVE=local ./gradlew bootRun
     ```
